@@ -9,7 +9,7 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        // Menyimpan data komentar ke IndexedDB
+        // Validasi form
         if (!name || !email || !message) {
             alert("Harap isi semua kolom pada formulir sebelum menyimpan.");
             return;
@@ -18,32 +18,17 @@ const ContactForm = () => {
         const comment = { name, email, message };
         try {
             await saveComment(comment);
-            console.log("komen berhasil disimpan.");
-            alert('Komentar berhasil disimpan di indexDB!');
+            console.log("Komentar berhasil disimpan.");
+            alert('Komentar berhasil disimpan di IndexedDB!');
 
-            // Meminta izin notifikasi
-            if (Notification.permission === "default") {
-                await Notification.requestPermission();
-            }
-
-            // Menampilkan notifikasi jika izin diberikan
-            if (Notification.permission === "granted") {
-                new Notification("Sukses!", {
-                    body: "Komentar berhasil disimpan di IndexedDB.",
-                    icon: "/pwa-192x192.png", // Ganti dengan ikon yang sesuai
-                });
-            } else if (Notification.permission === "denied") {
-                console.log("Pengguna menolak notifikasi.");
-            }
+            // Reset form setelah submit
+            setName('');
+            setEmail('');
+            setMessage('');
         } catch (error) {
             console.error('Gagal menyimpan komentar:', error);
-            alert("Terjadi kesalahan saat menyimpan komen.");
+            alert("Terjadi kesalahan saat menyimpan komentar.");
         }
-
-        // Reset form setelah submit
-        setName('');
-        setEmail('');
-        setMessage('');
     };
 
     return (
