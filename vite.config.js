@@ -7,11 +7,21 @@ export default defineConfig({
   plugins: [
     react(),
     VitePWA({
-      registerType: "autoUpdate", // PWA akan di-update otomatis
+      registerType: "autoUpdate",
+      includeAssets: [
+        "apple-touch-icon.png",
+        "pwa-maskable-512x512.png",
+        "assets/img.png",
+        "assets/Sertifikat/ukom.png",
+        "assets/Sertifikat/databasefoundations.png",
+        "assets/Sertifikat/javafundamental.png",
+        "assets/weeding.png",
+        "assets/tiktok.png",
+      ],
       manifest: {
-        name: "React Vite PWA",
-        short_name: "ReactPWA",
-        description: "React + Vite Progressive Web App",
+        name: "Abi Portofolio",
+        short_name: "Abi portofolio",
+        description: "Portofolio Web app",
         theme_color: "#ffffff",
         icons: [
           {
@@ -24,11 +34,20 @@ export default defineConfig({
             sizes: "512x512",
             type: "image/png",
           },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "any",
+          },
+          {
+            src: "pwa-512x512.png",
+            sizes: "512x512",
+            type: "image/png",
+            purpose: "maskable",
+          },
         ],
       },
     }),
   ],
-  build: {
-    outDir: "dist",
-  },
 });

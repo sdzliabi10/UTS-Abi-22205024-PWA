@@ -4,9 +4,6 @@ import { Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import ukomImg from "../../assets/Sertifikat/ukom.png";
-import databaseImg from "../../assets/Sertifikat/databasefoundations.png";
-import javaImg from "../../assets/Sertifikat/javafundamental.png";
 
 const Certificates = () => {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
@@ -15,7 +12,11 @@ const Certificates = () => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
 
   // Array gambar berdasarkan urutan slide
-  const images = [ukomImg, databaseImg, javaImg];
+  const images = [
+    "/assets/Sertifikat/ukom.png",
+    "/assets/Sertifikat/databasefoundations.png",
+    "/assets/Sertifikat/javafundamental.png"
+  ];
 
   // Fungsi untuk membuka preview gambar
   const openPreview = () => {
@@ -38,7 +39,7 @@ const Certificates = () => {
     }
   };
 
-  //penanganan swipper di tampilan mobile dan desktop
+  // Penanganan swipper di tampilan mobile dan desktop
   useEffect(() => {
     const handleResize = () => {
       setIsDesktop(window.innerWidth >= 768);
@@ -49,7 +50,6 @@ const Certificates = () => {
       window.removeEventListener("resize", handleResize);
     };
   }, []);
-  
 
   return (
     <div id="Certificate" className="py-10 text-center">
@@ -70,24 +70,23 @@ const Certificates = () => {
           className="w-full"
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         >
-
           <SwiperSlide>
             <div className="flex flex-col items-center relative">
-              <img src={ukomImg} alt="Ukom Certificate" className="w-full max-w-xs rounded-lg mb-4" />
+              <img src={images[0]} alt="Ukom Certificate" className="w-full max-w-xs rounded-lg mb-4" />
               <p className="text-lg font-semibold mt-2 text-white">Ukom Certificate</p>
             </div>
           </SwiperSlide>
 
           <SwiperSlide>
             <div className="flex flex-col items-center relative">
-              <img src={databaseImg} alt="Database Foundations Certificate" className="w-full max-w-xs rounded-lg mb-4" />
+              <img src={images[1]} alt="Database Foundations Certificate" className="w-full max-w-xs rounded-lg mb-4" />
               <p className="text-lg font-semibold mb-5 text-white">Database Foundations Certificate</p>
             </div>
           </SwiperSlide>
 
           <SwiperSlide>
             <div className="flex flex-col items-center relative">
-              <img src={javaImg} alt="Java Fundamentals Certificate" className="w-full max-w-xs rounded-lg mb-4" />
+              <img src={images[2]} alt="Java Fundamentals Certificate" className="w-full max-w-xs rounded-lg mb-4" />
               <p className="text-lg font-semibold mb-5 text-white">Java Fundamentals Certificate</p>
             </div>
           </SwiperSlide>
@@ -101,7 +100,7 @@ const Certificates = () => {
         Preview
       </button>
 
-      {/* Modal privew gambar */}
+      {/* Modal preview gambar */}
       {isPreviewOpen && (
         <div
           className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 modal-overlay"

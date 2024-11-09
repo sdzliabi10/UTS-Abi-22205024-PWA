@@ -5,6 +5,7 @@ const ContactForm = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [message, setMessage] = useState('');
+    const [submittedComment, setSubmittedComment] = useState(null);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -20,6 +21,9 @@ const ContactForm = () => {
             await saveComment(comment);
             console.log("Komentar berhasil disimpan.");
             alert('Komentar berhasil disimpan di IndexedDB!');
+
+            // Update state untuk menampilkan komentar yang baru saja dikirim
+            setSubmittedComment(comment);
 
             // Reset form setelah submit
             setName('');
@@ -81,6 +85,14 @@ const ContactForm = () => {
                         Send message
                     </button>
                 </form>
+                {submittedComment && (
+                    <div className="mt-8 p-4 bg-green-100 rounded-lg dark:bg-green-800">
+                        <h3 className="text-lg font-semibold text-green-700 dark:text-green-300">Komentar Terkirim:</h3>
+                        <p><strong>Nama:</strong> {submittedComment.name}</p>
+                        <p><strong>Email:</strong> {submittedComment.email}</p>
+                        <p><strong>Pesan:</strong> {submittedComment.message}</p>
+                    </div>
+                )}
             </div>
         </section>
     );

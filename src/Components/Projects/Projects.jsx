@@ -1,7 +1,5 @@
 import React from 'react';
 import ProjectCard from './ProjectCard';
-import weddingImg from "../../assets/weeding.png"; 
-import tiktokImg from "../../assets/tiktok.png";
 
 const Projects = () => {
   return (
@@ -14,7 +12,7 @@ const Projects = () => {
           main="Undangan Pernikahan yang dibangun menggunakan HTML, CSS, dan JavaScript. Memiliki fitur untuk menampilkan informasi pernikahan secara dinamis dengan URL state, sehingga pengguna dapat mengganti nama penerima undangan sesuai kebutuhan. Terdapat berbagai elemen interaktif seperti galeri foto, hitung mundur acara, dan audio pernikahan, yang dirancang untuk memberikan pengalaman undangan yang personal dan menarik."
           demoLink="https://sdzliabi10.github.io/weeding/"
           codeLink="https://github.com/sdzliabi10/weeding"
-          imgSrc={weddingImg} 
+          imgSrc="/assets/weeding.png"
         />
 
         <ProjectCard
@@ -22,7 +20,7 @@ const Projects = () => {
           main="Tiktok Downloader di bangun dengan bahasa pemograman React JS + Vite, webiste ini mengambil dari API yang memiliki kekurangan tidak bisa mendownload video slides gambar."
           demoLink="https://tiktokdownloader-beta.vercel.app"
           codeLink="https://github.com/sdzliabi10/TiktokDownloader"
-          imgSrc={tiktokImg}
+          imgSrc="/assets/tiktok.png"
         />
         
       </div>

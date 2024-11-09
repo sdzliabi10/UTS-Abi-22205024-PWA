@@ -1,6 +1,5 @@
 import React from 'react';
 import Tilt from 'react-parallax-tilt';
-import AboutImg from "../../assets/img.png";
 import { FaHtml5, FaCss3, FaJs, FaReact, FaLaravel } from "react-icons/fa";
 
 const About = () => {
@@ -12,7 +11,7 @@ const About = () => {
         </div>
         <div className='flex flex-col md:flex-row items-center mt-7'>
             <Tilt glareEnable={true} glareMaxOpacity={0.8} scale={1.1}>
-            <img className='h-40 w-40 md:h-80 md:w-80 rounded-full mt-7 md:mt-0 md:mr-6' src={AboutImg} alt="about" />
+            <img className='h-40 w-40 md:h-80 md:w-80 rounded-full mt-7 md:mt-0 md:mr-6' src="/assets/img.png" alt="about" />
             </Tilt>
 
             <ul className='md:ml-6 text-center md:text-left'>
